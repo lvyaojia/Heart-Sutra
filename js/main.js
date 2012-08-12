@@ -1,18 +1,23 @@
  jQuery(document).ready(function($) {
 
-            $('.sentence').click(
-                function(){
-                    showComment($(this));
-                }
-            );
+    $('#s1').show()
 
-        });
+    
+
+    $('.sentence').click(
+        function(){
+            showComment($(this));
+        }
+    );
+
+});
 
 function showComment(currentSentence){
 
+    $('.sentence').unbind('click');
     commentID = currentSentence.attr('comment');
 
-    $.ajax({
+/*    $.ajax({
         type: "GET",
         dataType: "json",
         url: 'http://sutra.sinaapp.com/'+commentID+'/',
@@ -20,10 +25,9 @@ function showComment(currentSentence){
             alert(data[0].fields)
         }
     }) 
-
+*/
     currentSentence.each(function(){
         var self = $(this);
-
 
         //点击的对象右边的经文向右移动，同时隐藏起来
         $(this).parent().prevAll().animate(
@@ -71,11 +75,26 @@ function showComment(currentSentence){
         );
 
         //$('.sentence').unbind('click');
-        self.unbind('click');
-        self.siblings().unbind('click');
-        self.click(function(){
+        /*self.click(function(){
             showSutra(self);
-        });
+        });*/
+        
+        
+        setTimeout(function(){
+            $('body').click(function(event){
+                showSutra(self);
+                event.stopPropagation();
+            });
+            $('.commentContent').click(function(event){
+                event.stopPropagation();
+                return false;
+            });
+
+        },1500)
+        
+
+        
+        
         
     });
 
@@ -85,6 +104,9 @@ function showComment(currentSentence){
 function showSutra(currentSentence) {
 
     commentID = currentSentence.attr('comment');
+
+    $('body').unbind('click');
+    $('.commentContent').unbind('click');
 
     $('#'+commentID).fadeOut(300,function(){
         currentSentence.each(function(){
@@ -139,18 +161,19 @@ function showSutra(currentSentence) {
                 },800
             );
 
+            
 
             self.parent().children().unbind('click');
-            self.parent().children().each(function(){
-                $(this).click(function(){
+            $('.sentence').click(
+                function(){
                     showComment($(this));
-                });
-                
-            });
+                }
+            );
 
         });
     });
 
-    
+
+
 
 }

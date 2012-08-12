@@ -15,22 +15,22 @@ height: 0;
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
-/*body{background-color: black;}*/
+
 body{overflow: hidden;background-color: #FAFAEB;}
+.contentWrapper{width:640px;margin:0 auto;overflow: hidden;}
+.sutraWrapper{width:640px;margin: 0 auto;overflow: hidden;float: right;}
+.pageList{width:1920px;position: relative;left:-1280px;height: 200px;} 
+.page{padding-right: 100px;float: right;width:540px;overflow: hidden;}
+
+
+.verticalLine{padding-top: 150px;position: relative;width:1em;display: inline-block;font-size: 42px;line-height:110%;float: right;padding-left: 38px;z-index: 99;}
 .sentence:hover{cursor: pointer;color: #c30d23;}
-.Author{font-size: 20px;}
-.page{overflow: hidden;width:640px;height:960px;margin:0 auto;}
-.wrapper{float: left;margin-left: 99px;}
-.verticalLine{padding-top: 150px;position: relative;width:1em;display: inline-block;font-size: 42px;line-height: 110%;float: right;padding-left: 37px;z-index: 999;}
-.verticalLineLast{padding-left: 0px;}
-.unfocus{color:#B5B5B6;}
 .fullmark {display: inline-block;line-height: 1px;color:#c30d23;position: relative;top: -15px;left: 15px;height: 15px;}
-/*.comment{display:none;position: absolute;top: 0;left: 0;height: 100%;width: 100%;overflow: auto;float: right;width: 200px;margin-left: 10px;}*/
-.comment{position: absolute;height: 100%;width: 100%;overflow: auto;z-index: 40; display: none;}
+
+
+.comment{position: absolute;height: 100%;width: 100%;overflow: auto;z-index: 999;display: none}
 .commentContent{background-color: #f3f3e7;border-right:1px solid #d9d9d9;font-size: 28px;width: 456px;padding-left:42px;padding-right:42px;}
 .comment h2{font-size: 36px;line-height: 36px;margin-bottom: 20px;margin-top: 150px;}
 .comment div{overflow: hidden;}
 .comment  p{font-size: 28px;line-height: 200%;}
 .comment h3{font-size: 33px;line-height: 36px;margin-bottom: 20px;margin-top: 20px;}
-.words{width: 100px;float: right;position: relative;}
-.words .verticalLine{padding-top: 150px;position: relative;width:1em;display: inline-block;font-size: 42px;line-height: 110%;float: right;padding-left: 0px;margin-right:37px;z-index: 999;}
